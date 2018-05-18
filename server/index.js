@@ -30,6 +30,7 @@ massive(process.env.CONNECTION_STRING).then((db) => {
     app.set('db', db);
 })
 
+
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
@@ -98,7 +99,7 @@ app.get('/api/user/:id', (req, res) => {
     res.send(userAdded[0])
 })
 
-app.put('/api/user/:id', (req, res) => {
+app.put('/api/users/:id', (req, res) => {
     let userIndex = null
     user.forEach((user, index) => {
         if (user.id === Number(req.params.id)) {
